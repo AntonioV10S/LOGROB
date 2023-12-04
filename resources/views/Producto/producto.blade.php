@@ -12,6 +12,14 @@
     <form action="{{url('productos')}}" method="post">
         @csrf
         <div>
+            <label>Categoria</label>
+            <select name="categoria" >
+            @foreach($categoria as $item)
+            <option value="{{$item->id}}">{{$item->descripcion}}</option>
+            @endforeach
+            </select>
+        </div>
+        <div>
         <label for="nombre">Nombre del Producto:</label>
         <input type="text" name="nombre" required>
         </div>

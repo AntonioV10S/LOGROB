@@ -18,7 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/',[ProductoController::class, 'index']);
+Route::get('/',[CategoriaController::class, 'show']);
+
+Route::post('/categorias',[CategoriaController::class, 'registrar']);
+Route::get('/categorias',[CategoriaController::class, 'index']);
+
+Route::get('/productos',[ProductoController::class, 'index']);
 Route::post('/productos',[ProductoController::class, 'save']);
 
-Route::get('/productos',[CategoriaController::class, 'index']);
+
+

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\categoria;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\producto;
@@ -8,17 +10,17 @@ use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
-    public function index()
+    public function registrar(Request $request)
     {
-        $productos = producto::where('estado', true)->get();
-        $categoria = DB::table('tablaproductos')
-            ->join('tablacategoria', 'tablaproductos.id_cat', '=', 'tablacategoria.id')
-            ->select('tablaproductos.id', 'tablaproductos.nombre', 'tablaproductos.fecha_vencimiento'
-            , 'tablaproductos.precio', 'tablaproductos.cantidad', 'tablacategoria.descripcion')
-            ->where('tablaproductos.estado', true)
-            ->get();
+        $cat = new categoria();
+        $cat->descripcion = $request->descripcion;
+        $cat->save();
+        return back();
+    }
 
-        return view('Producto.producto', compact('productos','categoria'));
 
+    public function show()
+    {
+        return view('Categoria.categoria');
     }
 }
