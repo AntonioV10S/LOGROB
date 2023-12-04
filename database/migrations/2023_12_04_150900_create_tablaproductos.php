@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('precio', 8, 2);
             $table->integer('cantidad');
             $table->boolean('estado')->default(true);
+            $table->foreignId('id_cat')->constrained('tablacategoria');
         });
     }
 

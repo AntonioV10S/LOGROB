@@ -14,8 +14,6 @@ return new class extends Migration
         Schema::create('tablacategoria', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion');
-            $table->foreignId('id_pro')->constrained('tablaproductos');
-
         });
     }
 

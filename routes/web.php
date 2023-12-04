@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ProductoController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[ProductoController::class, 'index']);
 Route::post('/productos',[ProductoController::class, 'save']);
+
+Route::get('/productos',[CategoriaController::class, 'index']);
